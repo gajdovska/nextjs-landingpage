@@ -5,7 +5,7 @@ const Tag = (props: HTMLAttributes<HTMLDivElement>) => {
     return (
         <div
             className={twMerge(
-                "inline-flex border border-lime-400 gap-2 rounded-full px-3 py-1 uppercase items-center mb-12"
+                "inline-flex border border-lime-400 gap-2 rounded-full px-3 py-1 uppercase items-center mb-10"
             )}
             {...otherProps}
         >

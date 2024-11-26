@@ -1,3 +1,6 @@
+import Tag from "@/components/Tag";
+import { twMerge } from "tailwind-merge";
+
 const faqs = [
     {
         question: "How is Layers different from other design tools?",
@@ -22,5 +25,70 @@ const faqs = [
 ];
 
 export default function Faqs() {
-    return <div>Faqs</div>;
+    const selectedIndex = 0;
+
+    return (
+        <section className="py-24">
+            <div className="container md:items-center ">
+                <div className="text-center">
+                    <Tag>FAQS</Tag>
+                    <h2 className="text-6xl font-medium max-w-xl m-auto">
+                        Questions? We&apos;ve got{" "}
+                        <span className="text-lime-400">answers</span>
+                    </h2>
+                </div>
+                <div className="grid grid-cols-1 gap-6 mt-8 md:max-w-xl m-auto">
+                    {faqs.map((faq, index) => (
+                        <div
+                            key={faq.question}
+                            className="border border-white/10 rounded-2xl p-5 bg-neutral-900"
+                        >
+                            <div className="flex justify-between items-center">
+                                <h3 className="font-medium">{faq.question}</h3>
+                                <span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        className={twMerge(
+                                            "feather feather-plus text-lime-400 flex-shrink-0",
+                                            selectedIndex === index &&
+                                                "rotate-45"
+                                        )}
+                                    >
+                                        <line
+                                            x1="12"
+                                            y1="5"
+                                            x2="12"
+                                            y2="19"
+                                        ></line>
+                                        <line
+                                            x1="5"
+                                            y1="12"
+                                            x2="19"
+                                            y2="12"
+                                        ></line>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div
+                                className={twMerge(
+                                    "mt-6",
+                                    selectedIndex !== index && "hidden"
+                                )}
+                            >
+                                <p className="text-white/50">{faq.answer}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 }

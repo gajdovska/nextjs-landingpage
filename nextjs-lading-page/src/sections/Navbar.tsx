@@ -1,10 +1,10 @@
 "use client";
+import { twMerge } from "tailwind-merge";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import logoImage from "@/assets/images/logo.svg";
 import Button from "@/components/Button";
 import { useState } from "react";
-import { twMerge } from "tailwind-merge";
-import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
     { label: "Home", href: "#" },
@@ -14,7 +14,7 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-    const [isMenuOpened, setIsMenuOpened] = useState(true);
+    const [isMenuOpened, setIsMenuOpened] = useState(false);
     return (
         <section className="py-4 lg:py-8 fixed w-full top-0 z-50">
             <div className="container max-w-5xl">

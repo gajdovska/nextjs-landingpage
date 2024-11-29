@@ -1,6 +1,8 @@
+"use client";
 import Tag from "@/components/Tag";
+import { useState } from "react";
 import { twMerge } from "tailwind-merge";
-
+import { AnimatePresence, motion } from "framer-motion";
 const faqs = [
     {
         question: "How is Layers different from other design tools?",
@@ -25,10 +27,10 @@ const faqs = [
 ];
 
 export default function Faqs() {
-    const selectedIndex = 0;
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
     return (
-        <section className="py-24">
+        <section className="py-24" id="faqs">
             <div className="container md:items-center ">
                 <div className="text-center">
                     <Tag>FAQS</Tag>
@@ -41,6 +43,7 @@ export default function Faqs() {
                     {faqs.map((faq, index) => (
                         <div
                             key={faq.question}
+                            onClick={() => setSelectedIndex(index)}
                             className="border border-white/10 rounded-2xl p-5 bg-neutral-900"
                         >
                             <div className="flex justify-between items-center">
@@ -57,7 +60,7 @@ export default function Faqs() {
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         className={twMerge(
-                                            "feather feather-plus text-lime-400 flex-shrink-0",
+                                            "feather feather-plus text-lime-400 transition duration-300 flex-shrink-0",
                                             selectedIndex === index &&
                                                 "rotate-45"
                                         )}
@@ -77,14 +80,23 @@ export default function Faqs() {
                                     </svg>
                                 </span>
                             </div>
-                            <div
-                                className={twMerge(
-                                    "mt-6",
-                                    selectedIndex !== index && "hidden"
+                            <AnimatePresence>
+                                {selectedIndex === index && (
+                                    <motion.div
+                                        initial={{ height: 0, marginTop: 0 }}
+                                        animate={{
+                                            height: "auto",
+                                            marginTop: 24,
+                                        }}
+                                        exit={{ height: 0, marginTop: 0 }}
+                                        className={twMerge("overflow-hidden")}
+                                    >
+                                        <p className="text-white/50">
+                                            {faq.answer}
+                                        </p>
+                                    </motion.div>
                                 )}
-                            >
-                                <p className="text-white/50">{faq.answer}</p>
-                            </div>
+                            </AnimatePresence>
                         </div>
                     ))}
                 </div>

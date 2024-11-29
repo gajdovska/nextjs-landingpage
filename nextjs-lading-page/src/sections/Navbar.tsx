@@ -18,7 +18,7 @@ export default function Navbar() {
     return (
         <section className="py-4 lg:py-8 fixed w-full top-0 z-50">
             <div className="container max-w-5xl">
-                <div className=" border border-white/15 md:rounded-full rounded-[27px] bg-neutral-950/70 backdrop-blur">
+                <div className="border border-white/15 md:rounded-full rounded-[27px] bg-neutral-950/70 backdrop-blur">
                     <div className="flex justify-between p-2 px-4 md:pr-2 items-center ">
                         <div>
                             <Image

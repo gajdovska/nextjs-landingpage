@@ -1,7 +1,8 @@
 import React, { HTMLAttributes } from "react";
-import { twMerge } from "tailwind-merge";
+
 const Tag = (props: HTMLAttributes<HTMLDivElement>) => {
-    const { className, children, ...otherProps } = props;
+    const { children, ...otherProps } = props;
+
     return (
         <div
             className="inline-flex border border-lime-400 gap-2 rounded-full px-3 py-1 uppercase items-center mb-10"

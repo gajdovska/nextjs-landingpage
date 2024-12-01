@@ -18,6 +18,7 @@ export default function Footer() {
                     <div className="flex gap-4 ">
                         {footerLinks.map((link) => (
                             <a
+                                key={link.href}
                                 href={link.href}
                                 className="text-white/50 text-sm md:text-base"
                             >

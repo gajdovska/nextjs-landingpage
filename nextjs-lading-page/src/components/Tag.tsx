@@ -4,9 +4,7 @@ const Tag = (props: HTMLAttributes<HTMLDivElement>) => {
     const { className, children, ...otherProps } = props;
     return (
         <div
-            className={twMerge(
-                "inline-flex border border-lime-400 gap-2 rounded-full px-3 py-1 uppercase items-center mb-10"
-            )}
+            className="inline-flex border border-lime-400 gap-2 rounded-full px-3 py-1 uppercase items-center mb-10"
             {...otherProps}
         >
             <span className="text-lime-400">&#10038;</span>

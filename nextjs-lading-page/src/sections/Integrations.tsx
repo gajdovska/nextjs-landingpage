@@ -5,8 +5,8 @@ import relumeLogo from "@/assets/images/relume-logo.svg";
 import slackLogo from "@/assets/images/slack-logo.svg";
 import framerLogo from "@/assets/images/framer-logo.svg";
 import githubLogo from "@/assets/images/github-logo.svg";
-import Image from "next/image";
 import IntegrationColumn from "@/components/IntegrationColumn";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 const integrations = [
     {
@@ -43,7 +43,7 @@ const integrations = [
 
 export type IntegrationsType = {
     name: string;
-    icon?: any;
+    icon: string | StaticImport;
     description: string;
 };
 

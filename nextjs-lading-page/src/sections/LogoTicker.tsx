@@ -9,7 +9,7 @@ import celestialLogo from "@/assets/images/celestial.svg";
 import twiceLogo from "@/assets/images/twice.svg";
 import Image from "next/image";
 import React from "react";
-import { motion, useAnimate } from "framer-motion";
+import { motion } from "framer-motion";
 
 const logos = [
     { name: "Quantum", image: quantumLogo },
@@ -40,7 +40,7 @@ export default function LogoTicker() {
                         className="flex flex-none flex-row gap-24 pr-24"
                     >
                         {Array.from({ length: 2 }).map((_, i) => (
-                            <React.Fragment>
+                            <React.Fragment key={i}>
                                 {logos.map((logo) => (
                                     <Image
                                         src={logo.image}
